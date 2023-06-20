@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <sys/sysmacros.h>
 
-unsigned char flag2[] = {80, 68, 79, 71, 83, 123, 80, 49, 48, 45, 50, 95, 36, 116, 82, 52, 99, 101, 95, 105, 36, 95, 65, 95, 57, 111, 111, 100, 95, 116, 111, 111, 76, 95, 116, 79, 95, 68, 51, 66, 117, 57, 95, 119, 49, 84, 104, 95, 83, 89, 36, 84, 101, 77, 95, 67, 97, 76, 76, 36, 125};
+unsigned char flag2[] = {58, 46, 37, 45, 57, 17, 58, 91, 90, 71, 88, 53, 78, 30, 56, 94, 9, 15, 53, 3, 78, 53, 43, 53, 83, 5, 5, 14, 53, 30, 5, 5, 38, 53, 30, 37, 53, 46, 89, 40, 31, 83, 53, 29, 91, 62, 2, 53, 57, 51, 78, 62, 15, 39, 53, 41, 11, 38, 38, 78, 23};
 
 void printFlag1()
 {
@@ -28,6 +28,10 @@ int main()
     goto TRICK;
   printf("I already gave you a flag hahaha.\n");
   printFlag1();
+  for (int i = 0; i < sizeof(flag2); i++)
+  {
+    flag2[i] ^= 0x6a;
+  }
   fwrite(flag2, 1, sizeof(flag2), devnull);
   fclose(devnull);
   printf("I threw the second flag to /dev/null, you will never find it hahaha!\n");
