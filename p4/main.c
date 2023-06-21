@@ -13,7 +13,7 @@ void printFlag()
 
 void printFlag2()
 {
-  unsigned char flag[] = {225, 245, 254, 246, 226, 202, 225, 133, 156, 131, 238, 225, 222, 248, 223, 229, 244, 227, 226, 238, 241, 227, 130, 238, 255, 254, 197, 238, 129, 223, 221, 232, 238, 215, 254, 195, 238, 242, 204};
+  unsigned char flag[] = {225, 245, 254, 246, 226, 202, 225, 133, 156, 131, 238, 214, 133, 227, 232, 238, 217, 241, 197, 130, 149, 238, 149, 222, 215, 134, 238, 221, 248, 223, 218, 132, 204};
   for (int i = 0; i < sizeof(flag); i++)
     putchar(flag[i] ^ 0xb1);
 }
@@ -21,7 +21,6 @@ void printFlag2()
 int main(int argc, char *argv[])
 {
   const char *filename = "pdogs6a";
-  char *linkname;
   struct stat *st;
   struct stat *lst;
   st = malloc(sizeof(struct stat));
@@ -36,17 +35,12 @@ int main(int argc, char *argv[])
     exit(EXIT_SUCCESS);
   }
 
-  if ((st->st_mode & S_IRWXU) == S_IRWXU && (st->st_mode & S_IRWXG) == 0 && (st->st_mode & S_IRWXO) == 0)
+  if ((st->st_mode & S_IRWXU) == S_IRWXU && (st->st_mode & S_IRWXG) == S_IRWXG && (st->st_mode & S_IRWXO) == S_IRWXO)
   {
     printFlag();
-    printf("\nHowever, can you make pdogs6a actually go to /home/pdoge/p5 ?\n");
-    linkname = realpath(filename, NULL);
-    if (linkname)
-    {
-      if (strcmp(linkname, "/home/pdoge/p5") == 0)
-        printFlag2();
-      free(linkname);
-    }
+    printf("\nHowever, can you make that it so that the files in pdogs6a/ can only be renamed or deleted by yourself?\n");
+    if (st->st_mode & S_ISVTX)
+      printFlag2();
     exit(EXIT_SUCCESS);
   }
   else

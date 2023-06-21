@@ -47,12 +47,12 @@ int main()
   scanf("%51199s", input);
   if (strncmp(input, out, sizeof(out)) == 0)
   {
-    printf("I heard what my believer said! here you go:\n");
+    printf("I heard what my believer said! Here you go:\n");
     printFlag1();
   }
   else if (strncmp(input, err, sizeof(err)) == 0)
   {
-    printf("It seems that he mad many faults recently. No wonder he comes to talk to me.\n");
+    printf("It seems that he had many faults recently. No wonder he comes to talk to me.\n");
     printFlag2();
   }
   exit(0);

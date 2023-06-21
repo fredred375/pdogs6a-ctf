@@ -44,7 +44,7 @@ int main()
   mounts = setmntent("/proc/mounts", "r");
   while (NULL != (ent = getmntent(mounts)))
   {
-    if (strcmp(ent->mnt_dir, "/home/pdoge/p8/8/4/4") == 0)
+    if (strcmp(ent->mnt_dir, "/home/pdoge/p8/8/3/6") == 0)
     {
       mnt = 1;
       break;
