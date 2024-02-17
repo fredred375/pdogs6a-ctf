@@ -9,6 +9,8 @@ As a DevOps developer at PDOGS, a significant part of your work will involve man
 
 In this entry task, we would like you to gain a fundamental understanding of working in a Linux environment by completing the following tasks.
 
+*This CTF is heavily inspired by the 2022 Homework 0 of the course Network Administration and System Administration at National Taiwan University*
+
 ## Setup and Rules
 
 
